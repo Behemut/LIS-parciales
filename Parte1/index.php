@@ -118,7 +118,7 @@ switch ($moneda1){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Formulario de préstamos</title>
+    <title>Formulario de conversión</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <!-- CSS only -->
@@ -137,7 +137,7 @@ switch ($moneda1){
           <input type="number" name="entrada"  required/>
         </div>
         <div class="item">
-          <label for="moned1">Seleccionar tipo de pago: <span></span></label>
+          <label for="moned1">Seleccionar moneda de origen: <span></span></label>
           <select name="moneda1" id="webmenu">           
                <option value="dolar">Dolar</option>
                 <option value="euro">Euro</option>
@@ -146,7 +146,7 @@ switch ($moneda1){
          </select>
         </div>
         <div class="item">
-          <label for="moneda2">Seleccionar periodo de pago: <span></span></label>
+          <label for="moneda2">Seleccionar moneda de destino: <span></span></label>
           <select name="moneda2">              
                 <option value="dolar">Dolar</option>
                 <option value="euro">Euro</option>
