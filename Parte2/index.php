@@ -27,25 +27,25 @@ $(document).ready(function () {
         type: "POST", 
         url: "gestor.php", 
         data: dataString, 
-        //success: function(result){ /* GET THE TO BE RETURNED DATA */
+        success: function(result){ /* GET THE TO BE RETURNED DATA */
       //$("#resultado").html(result); /* THE RETURNED DATA WILL BE SHOWN IN THIS DIV */
-        //LimpiarAutores();
-        //}
+        LimpiarAutores();
+        }
       })
       .done(function(data){
         errores = JSON.parse(data);
         console.log(errores);
       if (!errores.success) {   
         if (errores.errors_autor.apellido) {
-          $("#apellido-group").addClass("has-error");
+          $("#apellido-group").addClass("form-control is-invalid");
           $("#apellido-group").append(
-            '<div class="help-block">' + errores.errors_autor.apellido + "</div>"
+            '<div class="text-danger">' + errores.errors_autor.apellido + "</div>"
           );
         }
         if (errores.errors_autor.nombre) {
-          $("#nombre-group").addClass("has-error");
+          $("#nombre-group").addClass("form-control is-invalid");
           $("#nombre-group").append(
-            '<div class="help-block">' + errores.errors_autor.nombre + "</div>"
+            '<div class="text-danger ">' + errores.errors_autor.nombre + "</div>"
           );
         } 
       }
@@ -81,67 +81,67 @@ $(document).ready(function () {
         type: "POST", 
         url: "gestor_libros.php", 
         data: dataLibros, 
-      //  success: function(result){ 
+        success: function(result){ 
       //  $("#resultado").html(  
            
       //      result); 
-      //  LimpiarLibros();
-      //  }
+        LimpiarLibros();
+        }
       })
       .done(function(data){
+        console.log(data);
         errores = JSON.parse(data);
-        console.log(errores);
       if (!errores.success) {   
         if (errores.errors.titulo) {
-          $("#titulo-group").addClass("has-error");
+          $("#titulo-group").addClass("form-control is-invalid");
           $("#titulo-group").append(
-            '<div class="help-block">' + errores.errors.titulo + "</div>"
+            '<div class="text-danger">' + errores.errors.titulo + "</div>"
           );
         }
         if (errores.errors.numedicion) {
-          $("#numedicion-group").addClass("has-error");
+          $("#numedicion-group").addClass("form-control is-invalid");
           $("#numedicion-group").append(
-            '<div class="help-block">' + errores.errors.numedicion + "</div>"
+            '<div class="text-danger">' + errores.errors.numedicion + "</div>"
           );
         } 
         if (errores.errors.lugarpub) {
-          $("#lugarpub-group").addClass("has-error");
+          $("#lugarpub-group").addClass("form-control is-invalid");
           $("#lugarpub-group").append(
-            '<div class="help-block">' + errores.errors.lugarpub + "</div>"
+            '<div class="text-danger">' + errores.errors.lugarpub + "</div>"
           );
         } 
         if (errores.errors.editorial) {
-          $("#editorial-group").addClass("has-error");
+          $("#editorial-group").addClass("form-control is-invalid");
           $("#editorial-group").append(
-            '<div class="help-block">' + errores.errors.editorial + "</div>"
+            '<div class="text-danger">' + errores.errors.editorial + "</div>"
           );
         } 
 
         if (errores.errors.añoed) {
-          $("#añoed-group").addClass("has-error");
+          $("#añoed-group").addClass("form-control is-invalid");
           $("#añoed-group").append(
-            '<div class="help-block">' + errores.errors.añoed + "</div>"
+            '<div class="text-danger">' + errores.errors.añoed + "</div>"
           );
         } 
 
         if (errores.errors.numpag) {
-          $("#numpag-group").addClass("has-error");
+          $("#numpag-group").addClass("form-control is-invalid");
           $("#numpag-group").append(
-            '<div class="help-block">' + errores.errors.numpag + "</div>"
+            '<div class="text-danger">' + errores.errors.numpag + "</div>"
           );
         } 
 
 
         if (errores.errors.notas) {
-          $("#notas-group").addClass("has-error");
+          $("#notas-group").addClass("form-control is-invalid");
           $("#notas-group").append(
-            '<div class="help-block">' + errores.errors.notas + "</div>"
+            '<div class="text-danger">' + errores.errors.notas + "</div>"
           );
         } 
         if (errores.errors.isbn) {
-          $("#isbn-group").addClass("has-error");
+          $("#isbn-group").addClass("form-control is-invalid");
           $("#isbn-group").append(
-            '<div class="help-block">' + errores.errors.isbn + "</div>"
+            '<div class="text-danger">' + errores.errors.isbn + "</div>"
           );
         } 
     }
@@ -207,9 +207,9 @@ $(document).ready(function () {
 function LimpiarAutores(){
     document.getElementById('nombre').value= '';
     document.getElementById("apellido").value= '';
-    $("#apellido-group").removeClass("has-error"); 
-    $("#nombre-group").removeClass("has-error");
-    $('.help-block').remove();
+    $("#apellido-group").removeClass("form-control is-invalid"); 
+    $("#nombre-group").removeClass("form-control is-invalid");
+    $('.text-danger').remove();
 }
 
 function LimpiarLibros(){
@@ -221,15 +221,15 @@ function LimpiarLibros(){
     document.getElementById("notas").value= '';
     document.getElementById("isbn").value= '';
     document.getElementById("editorial").value= '';
-    $("#titulo-group").removeClass("has-error"); 
-    $("#numedicion-group").removeClass("has-error"); 
-    $("#lugarpub-group").removeClass("has-error"); 
-    $("#añoed-group").removeClass("has-error"); 
-    $("#numpag-group").removeClass("has-error"); 
-    $("#notas-group").removeClass("has-error"); 
-    $("#isbn-group").removeClass("has-error"); 
-    $("editorial-group").removeClass("has-error");
-    $('.help-block').remove();
+    $("#titulo-group").removeClass("form-control is-invalid"); 
+    $("#numedicion-group").removeClass("form-control is-invalid"); 
+    $("#lugarpub-group").removeClass("form-control is-invalid"); 
+    $("#añoed-group").removeClass("form-control is-invalid"); 
+    $("#numpag-group").removeClass("form-control is-invalid"); 
+    $("#notas-group").removeClass("form-control is-invalid"); 
+    $("#isbn-group").removeClass("form-control is-invalid"); 
+    $("editorial-group").removeClass("form-control is-invalid");
+    $('.text-danger').remove();
 }
 </script>
 

@@ -13,9 +13,6 @@
     //Declaracion de regex
 
     $regex_nombre= '/^([a-zA-Z \u00f1\u00d1]+)$/';
-    $regex_isbn = '/^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/g';
-    $regex_street= '/[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-Z1-9À-ÖØ-öø-ÿ]+\.?)*/';
-
 
 //VALIDACION PARA LOS CAMPOS 
 
