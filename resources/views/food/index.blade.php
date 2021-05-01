@@ -7,6 +7,9 @@
 {{Session::get('mensaje')}}
 @endif
 
+{{View::share('resultado')}}
+
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -31,7 +34,8 @@
     </head>
     <div class="row">
         <div class="col-12">
-            <table class="table table-image">
+            <input class="form-control mb-4" id="tableSearch" type="text" placeholder="Buscar receta base nombre o categoria">
+            <table class="table table-bordered table-image">
                 <thead>
          <tr>
              <th>#</th>
@@ -47,7 +51,7 @@
      @foreach( $food as $datos)
          <tr>
             <th scope="row">{{$datos->id}}</th>
-            <td>  {{$datos->nombre}}</td>
+            <td>{{$datos->nombre}}</td>
             <td>{{$datos->categoria}}</td>
             <td>{{$datos->ingredientes}}</td>
             <td>{{$datos->preparacion}}</td>
@@ -58,7 +62,7 @@
             <form action="{{url('/food/'.$datos->id ) }}" method="POST">
             @csrf
             {{method_field("DELETE")}}
-            <input type="submit" value="Borrar" onclick="return confirm('¿Deseas realmente borrar?')">
+            <input type="submit"  class="btn btn-danger" value="Borrar" onclick="return confirm('¿Deseas realmente borrar?')">
             </form>
          </tr>
     @endforeach

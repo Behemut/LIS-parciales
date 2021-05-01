@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Storage;
 
 class FoodController extends Controller
@@ -48,7 +48,7 @@ class FoodController extends Controller
        }
        Food::insert($datos);
       // return response()->json($datos);
-      return redirect('food')->with('mensaje','Comida agregada con exito');
+      return redirect('food')->with('mensaje','Receta agregada con exito');
     }
 
     /**
@@ -57,8 +57,13 @@ class FoodController extends Controller
      * @param  \App\Models\Food  $food
      * @return \Illuminate\Http\Response
      */
-    public function show(Food $food)
+    public function show($busqueda)
     {
+       $resultado= Food::where('categoria','like',''.$busqueda.'%')
+        ->orWhere('nombre','like',''.$busqueda.'%')
+        ->get();
+
+        return View::share('resultado', $resultado);
 
     }
 
@@ -92,7 +97,7 @@ class FoodController extends Controller
         }
         Food::where('id','=',$id )->update($datos);
 
-        return redirect('food')->with('mensaje','Comida actualizada con exito');
+        return redirect('food')->with('mensaje','Receta actualizada con exito');
 
 
     }
@@ -112,6 +117,6 @@ if(Storage::delete('public/'.$busqueda->foto))
 
 
 
-    return redirect('food')->with('mensaje','Comida actualizada con exito');
+    return redirect('food')->with('mensaje','Receta eliminada con exito');
     }
 }

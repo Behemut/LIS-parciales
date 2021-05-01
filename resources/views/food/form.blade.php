@@ -1,35 +1,36 @@
 
 
-<label for="nombre" >Nombre</label>
-<input type="text" name="nombre" id="nombre" value="{{isset($datos->nombre)? $datos->nombre: ''}}"  required>
-<br>
-<label for="categoria" >Categoria</label>
-<input type="text" name="categoria" id="categoria"  value="{{isset($datos->categoria)? $datos->categoria: ''}}" required>
-<br>
-<label for="ingredientes" >Ingredientes</label>
-<input type="text" name="ingredientes" id="ingredientes"  value="{{isset($datos->ingredientes)? $datos->ingredientes: ''}}" required>
-<br>
-<label for="preparacion" >Preparacion</label>
-<input type="text" name="preparacion" id="preparacion"  value="{{isset($datos->preparacion)? $datos->preparacion: ''}}" required>
-<br>
-@if(isset($datos->foto))
-<img src="{{asset('storage').'/'.$datos->foto}}"   width="162" height="162">
-@endif
-
-<input type="file" name="foto" id="foto"  required>
-<br>
-<input type="submit" value="{{$modo}} la receta">
-<br>
-
 
 
 <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+<label for="nombre" >Nombre</label>
+<input  type="text" class="form-control" name="nombre" id="nombre" required value="{{isset($datos->nombre)? $datos->nombre: ''}}" >
   </div>
 
+<div class="form-group">
+<label for="categoria" >Categoria</label>
+<input type="text"  class="form-control" name="categoria" id="categoria"  value="{{isset($datos->categoria)? $datos->categoria: ''}}" required>
+</div>
 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
+
+<div class="form-group">
+<label for="ingredientes" >Ingredientes</label>
+<textarea class="form-control" rows="3" name="ingredientes" id="ingredientes"  required    >{{isset($datos->ingredientes)? $datos->ingredientes: ''}}</textarea>
+</div>
+
+
+<div class="form-group">
+<label for="preparacion">Preparacion</label>
+<textarea class="form-control"  rows="3"  name="preparacion" id="preparacion" required >{{isset($datos->preparacion)? $datos->preparacion: ''}}</textarea>
+</div>
+
+<div class="form-group">
+<label for="foto">Subir imagen</label>
+<input type="file" class="form-control-file" type="file" name="foto" id="foto">
+</div>
+
+@if(isset($datos->foto))
+<img  class="w-25 img-fluid img-thumbnail" src="{{asset('storage').'/'.$datos->foto}}">
+@endif
+
+  <input  class=" form-control btn btn-primary" type="submit" value="{{$modo}} la receta">
